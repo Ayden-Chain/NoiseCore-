@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Noisecore – Headphones, earbuds and speakers</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="#home">Noisecore</a>
+  <nav aria-label="Main">
+    <a href="#home">Home</a><a href="#products">Products</a><a href="#about">About</a><a href="#deals">Deals</a><a href="#membership">Membership</a>
+  </nav>
+  <button class="cartbtn" id="open">Cart (<span id="count">0</span>)</button>
+</header>
+
+<main>
+<section data-page="home">
+  <div class="hero">
+    <canvas id="wave" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <h1>Jakarta is loud. Your music shouldn’t have to compete.</h1>
+      <p>Headphones, earbuds and speakers for loud commutes and quiet rooms.</p>
+      <div class="acts">
+        <a class="btn light" href="#products">Shop all gear</a>
+        <button class="btn ghost" id="anc" aria-pressed="false">Noise cancelling: off</button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="head"><h2>Top picks</h2><a href="#products">See all products</a></div>
+    <div class="grid" id="top"></div>
+  </div>
+  <div class="wrap" style="padding-top:0">
+    <div class="bf">
+      <h2>Black Friday week</h2>
+      <p>Up to 30% off selected gear until 30 November. Members get early access.</p>
+      <a class="btn" href="#membership">Join for free</a>
+    </div>
+  </div>
+</section>
+
+<section data-page="products">
+  <div class="wrap">
+    <h2>All products</h2>
+    <div class="chips" id="chips" role="group" aria-label="Filter by category">
+      <button data-c="all" aria-pressed="true">All</button>
+      <button data-c="h" aria-pressed="false">Headphones</button>
+      <button data-c="e" aria-pressed="false">Earbuds</button>
+      <button data-c="s" aria-pressed="false">Speakers</button>
+      <button data-c="o" aria-pressed="false">Open-ear</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section data-page="about">
+  <div class="wrap narrow">
+    <h2>Audio gear we would actually use.</h2>
+    <p>Noisecore started in 2021 because buying headphones online meant sorting through hundreds of near-identical listings. We keep the catalogue small, price everything in rupiah, and describe each product in plain words.</p>
+    <div class="vals">
+      <div><h3>Clear sound</h3><p>Every pair is chosen for how it sounds on a bus, not on a spec sheet.</p></div>
+      <div><h3>Comfort first</h3><p>If it hurts after an hour, it does not make the catalogue.</p></div>
+      <div><h3>Fair prices</h3><p>The price you see is the price you pay.</p></div>
+    </div>
+    <ol class="tl">
+      <li><b>2021</b>Founded by a small team of audio fans.</li>
+      <li><b>2022</b>First noise-cancelling headphones.</li>
+      <li><b>2023</b>Speaker range added.</li>
+      <li><b>2024</b>Membership launched.</li>
+    </ol>
+  </div>
+</section>
+
+<section data-page="deals">
+  <div class="wrap">
+    <h2>Current deals</h2>
+    <div class="deals">
+      <div class="deal" style="background:#2a3cff"><h3>20% off headphones</h3><p>Selected headphones until 30 November.</p><a class="btn light" href="#products" style="align-self:start">Shop headphones</a></div>
+      <div class="deal" style="background:#c4163f"><h3>Buy 1 get 1 Pod Mini</h3><p>Weekend only. Gift the second pair.</p><a class="btn light" href="#products" style="align-self:start">Shop earbuds</a></div>
+      <div class="deal" style="background:#0f7d68"><h3>Free shipping</h3><p>On every order over Rp500.000.</p><a class="btn light" href="#products" style="align-self:start">Start shopping</a></div>
+    </div>
+    <div class="bf"><h2>Members get deals first</h2><p>Join for free to see new promotions before everyone else.</p><a class="btn" href="#membership">Join membership</a></div>
+  </div>
+</section>
+
+<section data-page="membership">
+  <div class="wrap">
+    <h2>Join Noisecore membership</h2>
+    <form class="form" id="mf" novalidate>
+      <label>Name<input id="name" autocomplete="name"></label>
+      <label>Email<input id="email" type="email" autocomplete="email"></label>
+      <label>Gender (optional)<select id="gender"><option value="">Prefer not to say</option><option>Female</option><option>Male</option><option>Other</option></select></label>
+      <label>Date of birth<input id="dob" type="date"></label>
+      <label>Password (8+ characters, with a number)<input id="password" type="password" autocomplete="new-password"></label>
+      <label class="chk"><input id="terms" type="checkbox"> I agree to the terms and conditions</label>
+      <p id="err" role="alert"></p>
+      <button class="btn" type="submit">Join now</button>
+    </form>
+    <div class="form" id="ok" hidden><h3>Welcome, <span id="okname"></span>.</h3><p>Your membership is active. Early access to deals starts now.</p><a class="btn" href="#deals">See member deals</a></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><div class="logo" style="color:var(--ink)">Noisecore</div>Helping you find the best listening experience.</div>
+    <div>Contact<br><a href="https://wa.me/628217087666">WhatsApp +62 821-7087-666</a></div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="cart" aria-label="Cart" inert>
+  <button class="x" id="close" aria-label="Close cart">×</button>
+  <h2 style="font-size:1.3rem">Your cart</h2>
+  <ul id="lines"></ul>
+  <div class="tot"><span>Total</span><span id="total">Rp0</span></div>
+  <button class="btn" id="pay">Checkout</button>
+  <p id="note" role="status" style="color:var(--mute);font-size:.9rem"></p>
+</aside>
+
+<script src="script.js" defer></script>
+</body>
+</html>
